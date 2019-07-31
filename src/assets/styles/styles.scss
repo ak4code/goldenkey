@@ -1,0 +1,49 @@
+// UIKit Theme Customizations (see https://getuikit.com/docs/sass)
+// 1. Your custom variables and variable overwrites in ./theme/_variables.scss
+@import "theme/variables";
+// $global-link-color: #DA7D02;
+// 2. Import default variables and available mixins.
+@import "~uikit/src/scss/variables.scss";
+@import "~uikit/src/scss/mixins.scss";
+// 3. Your custom mixin overwrites.
+//@import "theme/accordion-mixins.scss";
+// 4. Import UIkit.
+@import "~uikit/src/scss/uikit.scss";
+@import url('https://fonts.googleapis.com/css?family=Merriweather&display=swap');
+
+.gk-header {
+  background: white;
+  border-bottom: 1px solid #c0c0c0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  .header-item {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+  }
+}
+
+a.custom-logo-link {
+  max-width: 250px;
+}
+
+.gk-title {
+  font-family: 'Merriweather', serif;
+}
+
+.gk-footer {
+  background: $secondary-color;
+  min-height: 150px;
+}
+
+.gk-widget-h4 {
+  color: $primary-color !important;
+  border-bottom: 1px solid;
+}
+
+.gk-type-tile {
+  min-height: 200px;
+  box-sizing: border-box;
+}

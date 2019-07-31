@@ -1,8 +1,20 @@
 import Vue from 'vue'
-import App from './App.vue'
+import './plugins/axios'
+import UIkit from 'uikit'
+import '@/assets/styles/styles.scss'
+import Icons from 'uikit/dist/js/uikit-icons'
+
+UIkit.use(Icons)
+window.UIkit = UIkit
+
+UIkit.use(Icons)
+window.UIkit = UIkit
 
 Vue.config.productionTip = false
 
 new Vue({
-  render: h => h(App)
-}).$mount('#app')
+    el: '#app',
+    components: {
+
+    }
+})
