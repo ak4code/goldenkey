@@ -3,7 +3,11 @@
  * @package realtor
  * created by akweb
  */
+?>
 
-the_title();
+<h3>
+	<?php the_title(); ?>
+</h3>
 
-the_content();
+
+<?php the_content(); ?>

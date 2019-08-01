@@ -13,8 +13,6 @@ window.UIkit = UIkit
 Vue.config.productionTip = false
 
 new Vue({
-    el: '#app',
-    components: {
-
-    }
+  el: '#app',
+  components: {}
 })

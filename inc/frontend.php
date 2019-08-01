@@ -11,7 +11,7 @@ function realtor_frontend()
         wp_enqueue_script('realtor-js', 'http://localhost:8081/app.js', array(), null, true);
     } else {
         wp_enqueue_style('realtor-style', get_template_directory_uri() . '/dist/css/app.css', array(), null);
-        wp_enqueue_script('realtor-js', get_template_directory_uri() . '/dist/app.js', array(), null, true);
+        wp_enqueue_script('realtor-js', get_template_directory_uri() . '/dist/js/app.js', array(), null, true);
     }
 }
 

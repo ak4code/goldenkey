@@ -33,7 +33,11 @@ add_action( "admin_init", "gk_admin_options_fields" );
 function gk_admin_options_fields() {
 	add_settings_section( 'gk_general_options', 'Онсовные настройки темы', '', 'goldenkey' );
 
-	add_settings_field( 'gk_logo_img', 'Логотип', '', 'goldenkey', 'gk_general_options' );
+	add_settings_field( 'gk_address', 'Адрес', 'gk_address_field', 'goldenkey', 'gk_general_options' );
 
-	register_setting( "goldenkey", "gk_logo_img" );
+	register_setting( "goldenkey", "gk_address" );
+}
+
+function gk_address_field() {
+	echo '<input type="text" style="width: 100%" name="gk_address" id="gk_address" value="' . get_option( 'gk_address' ) . '"/>';
 }
