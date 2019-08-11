@@ -10,6 +10,7 @@ function realty_featured_image($post_ID) {
 
 function realty_columns_head($defaults) {
 	$defaults['featured_image'] = 'Фото';
+	$defaults['code_object'] = 'Код объекта';
 	return $defaults;
 }
 
@@ -22,8 +23,17 @@ function realty_columns_content($column_name, $post_ID) {
 			echo '<img src="' . get_template_directory_uri() . '/nophoto.jpg" width="50" height="50" />';
 		}
 	}
+	if ($column_name == 'code_object') {
+		$property = pods('realty', $post_ID);
+		if ($property) {
+			echo $property->display('code_object');
+		} else {
+			echo 'Не указан';
+		}
+	}
 }
 
 add_filter('manage_realty_posts_columns', 'realty_columns_head', 10);
 
 add_action('manage_realty_posts_custom_column', 'realty_columns_content', 10, 2);
+

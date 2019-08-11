@@ -20,6 +20,19 @@ if ( 'disable_gutenberg' ) {
 	} );
 }
 
+
+function gk_search_code_object( $where ) {
+	global $pagenow, $wpdb;
+	if ( is_admin() && $pagenow == 'edit.php' && ! empty( $_GET['post_type'] ) && $_GET['post_type'] == 'realty' && ! empty( $_GET['s'] ) ) {
+		$sparam = $_GET['s'];
+		$where  .= " OR $wpdb->posts.ID IN (SELECT $wpdb->postmeta.post_id FROM $wpdb->postmeta WHERE meta_key = 'code_object' AND meta_value LIKE '%$sparam%') ";
+	}
+
+	return $where;
+}
+
+add_filter( 'posts_where', 'gk_search_code_object' );
+
 add_action( "admin_menu", "gk_admin_menu_link" );
 function gk_admin_menu_link() {
 	add_menu_page( "Настройки темы Золотой ключ", "Золотой ключ", "manage_options", "goldenkey", "gk_admin_options_page", null, 99 );

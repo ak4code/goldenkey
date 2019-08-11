@@ -1,5 +1,9 @@
 $primary-color: #FFB000;
+$accent-color: #d79318;
 $secondary-color: #615E5F;
+
+$button-primary-background: #FFB000;
+$button-primary-color: #615E5F;
 
 $base-body-background: #eaeff3;
 $base-color: #615E5F;
@@ -9,3 +13,6 @@ $navbar-nav-item-height: 60px;
 $base-h1-font-size: 1.8rem;
 $base-body-font-size: 14px;
 $card-default-background: #ffffff;
+$card-secondary-background: $secondary-color;
+$nav-default-item-color: $primary-color;
+$nav-default-item-hover-color: $accent-color;

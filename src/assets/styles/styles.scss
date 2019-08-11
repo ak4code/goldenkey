@@ -33,6 +33,22 @@ a.custom-logo-link {
   max-width: 250px;
 }
 
+.gk-primary-color {
+  color: $primary-color !important;
+}
+
+.gk-secondary-color {
+  color: $secondary-color !important;
+}
+
+.gk-primary-background {
+  background: $primary-color !important;
+}
+
+.gk-secondary-background {
+  background: $secondary-color !important;
+}
+
 .gk-title {
   font-family: 'Merriweather', serif;
 }
@@ -40,6 +56,7 @@ a.custom-logo-link {
 .gk-footer {
   background: $secondary-color;
   min-height: 150px;
+  color: white;
 }
 
 .gk-widget-h4 {
@@ -54,7 +71,7 @@ a.custom-logo-link {
   overflow: hidden;
   position: relative;
   &:after {
-    content : "";
+    content: "";
     display: block;
     position: absolute;
     top: 0;
@@ -62,7 +79,7 @@ a.custom-logo-link {
     background-image: url("../image/gk-tex.png");
     width: 100%;
     height: 100%;
-    opacity : 0.2;
+    opacity: 0.2;
   }
   a.type-link {
     height: 100%;
@@ -76,4 +93,113 @@ a.custom-logo-link {
 
 .gk-heading-border {
   border-bottom: 1px solid $primary-color;
+}
+
+.gk-property-item {
+  display: block;
+  position: relative;
+
+  .gk-property-price {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    padding: 3px 7px;
+    font-weight: bold;
+    text-shadow: 1px 1px 0px #000000;
+    color: $primary-color;
+    background: $secondary-color;
+  }
+  .gk-property-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.02));
+    padding: 10px;
+    color: #fff;
+    text-shadow: 1px 1px 3px #000000;
+    width: 100%;
+    h3 {
+      color: #fff;
+      font-weight: bold;
+      font-size: 16px;
+    }
+  }
+}
+
+.gk-property-full {
+  .gk-property-title {
+    font-size: 28px;
+    font-weight: lighter;
+  }
+  .gk-property-price {
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 24px;
+    text-shadow: 1px 1px 0px #000000;
+    color: $primary-color;
+    background: $secondary-color;
+  }
+}
+
+.gk-form {
+  input {
+    border: 1px solid white;
+    background-color: #e1e1e1 !important;
+    color: $secondary-color !important;
+    &::placeholder {
+      color: $secondary-color !important;
+    }
+  }
+  button[type=submit] {
+    background: $primary-color !important;
+  }
+}
+
+.gk-thin-title {
+  font-weight: lighter;
+}
+
+.gk-realty-object {
+  .gk-property-price {
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-shadow: 1px 1px 0px #000000;
+    color: #FFB000;
+    background: #615E5F;
+  }
+  .gk-property-image {
+    min-height: 240px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .gk-property-description {
+    max-height: 140px;
+  }
+  .gk-property-more {
+    background: $secondary-color;
+    color: white;
+    padding: 3px 10px;
+    margin: 10px;
+    border-radius: 5px;
+    transition: color .3s ease-in-out;
+    &:hover {
+      text-decoration: none;
+      color: $primary-color;
+    }
+  }
+}
+
+.gk-thumbnav {
+  img {
+    height: 100% !important;
+  }
+  .uk-active {
+    img {
+      border: 3px solid $primary-color;
+      box-sizing: border-box;
+    }
+  }
 }

@@ -12,6 +12,7 @@ function realtor_frontend()
     } else {
         wp_enqueue_style('realtor-style', get_template_directory_uri() . '/dist/css/app.css', array(), null);
         wp_enqueue_script('realtor-js', get_template_directory_uri() . '/dist/js/app.js', array(), null, true);
+        wp_enqueue_script('realtor-js-chunk', get_template_directory_uri() . '/dist/js/chunk-vendors.js', array(), null, true);
     }
 }
 
@@ -39,7 +40,7 @@ add_action('wp_head', function () {
         $script = $wp_scripts->registered[$handle];
 
         //-- Weird way to check if script is being enqueued in the footer.
-        if ($script->handle === 'realtor-js') {
+        if ($script->handle === 'realtor-js' || $script->handle === 'realtor-js-chunk') {
 
             //-- If version is set, append to end of source.
             $source = $script->src . ($script->ver ? "?ver={$script->ver}" : "");
@@ -49,3 +50,25 @@ add_action('wp_head', function () {
         }
     }
 }, 1);
+
+function gk_theme_widgets_init() {
+
+	register_sidebar( array(
+		'name'          => 'Подвал',
+		'id'            => 'footer',
+		'before_widget' => '<div>',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h4 class="gk-widget-h4">',
+		'after_title'   => '</h4>',
+	) );
+	register_sidebar( array(
+		'name'          => 'Боковая панель (Объекты)',
+		'id'            => 'sidebar_realty',
+		'before_widget' => '<div class="uk-card uk-card-body uk-card-small uk-border-rounded uk-card-default uk-box-shadow-medium">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h4 class="gk-widget-h4">',
+		'after_title'   => '</h4>',
+	) );
+
+}
+add_action( 'widgets_init', 'gk_theme_widgets_init' );

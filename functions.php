@@ -8,3 +8,4 @@ require_once(get_template_directory() . '/inc/frontend.php');
 require_once(get_template_directory() . '/inc/theme-support.php');
 require_once(get_template_directory() . '/inc/admin.php');
 require_once(get_template_directory() . '/inc/columns.php');
+require_once(get_template_directory() . '/inc/api.php');
