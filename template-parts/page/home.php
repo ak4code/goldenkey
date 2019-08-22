@@ -62,6 +62,11 @@ $new_objects = pods( 'realty', array(
 					get_template_part( '/template-parts/realty/item', 'list' );
 				} ?>
             </div>
+            <div class="uk-flex uk-flex-center">
+                <div>
+                    <a href="/realty" class="uk-button uk-button-primary uk-margin-top">Посмотреть все объекты</a>
+                </div>
+            </div>
         </div>
 	<?php endif; ?>
     <div class="uk-card uk-card-body uk-box-shadow-small uk-border-rounded uk-card-default uk-margin-top">

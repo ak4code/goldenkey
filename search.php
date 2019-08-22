@@ -17,7 +17,12 @@ get_header(); ?>
                             page="<?php echo $_GET['page']; ?>"
                     ></search-result>
                 </div>
-                <div class="uk-width-1-4@m"></div>
+                <div class="uk-width-1-4@m">
+                    <div class="uk-card uk-card-body uk-card-small uk-border-rounded uk-card-secondary uk-box-shadow-medium">
+                        <h4 class="gk-widget-h4">Поиск недвижимости</h4>
+                        <search-realty></search-realty>
+                    </div>
+                </div>
             </div>
 		<?php else: ?>
             <h1 class="uk-h2 gk-title gk-heading-border uk-text-uppercase uk-margin-top">Поиск по сайту</h1>

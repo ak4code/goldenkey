@@ -1,6 +1,7 @@
 // UIKit Theme Customizations (see https://getuikit.com/docs/sass)
 // 1. Your custom variables and variable overwrites in ./theme/_variables.scss
 @import "theme/variables";
+@import "theme/media";
 // $global-link-color: #DA7D02;
 // 2. Import default variables and available mixins.
 @import "~uikit/src/scss/variables.scss";
@@ -10,6 +11,12 @@
 // 4. Import UIkit.
 @import "~uikit/src/scss/uikit.scss";
 @import url('https://fonts.googleapis.com/css?family=Merriweather&display=swap');
+
+a {
+  &:hover {
+    text-decoration: none;
+  }
+}
 
 .gk-page {
   min-height: 70vh;
@@ -118,6 +125,7 @@ a.custom-logo-link {
     color: #fff;
     text-shadow: 1px 1px 3px #000000;
     width: 100%;
+    box-sizing: border-box;
     h3 {
       color: #fff;
       font-weight: bold;
@@ -194,12 +202,29 @@ a.custom-logo-link {
 
 .gk-thumbnav {
   img {
-    height: 100% !important;
   }
   .uk-active {
     img {
       border: 3px solid $primary-color;
       box-sizing: border-box;
+    }
+  }
+}
+
+.gk-pagination {
+  .page-numbers {
+    padding: 0 15px;
+    margin: 0 3px;
+    background: $secondary-color;
+    color: $primary-color;
+    display: flex;
+    justify-content: center;
+    min-height: 32px;
+    align-items: center;
+    box-sizing: border-box;
+    &.current {
+      background: $primary-color;
+      color: $secondary-color;
     }
   }
 }

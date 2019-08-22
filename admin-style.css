@@ -1,0 +1,13 @@
+ul.pods-dfv-list li.pods-dfv-list-name {
+    left: 140px !important;
+}
+
+ul.pods-dfv-list li.pods-dfv-list-icon {
+    width: 100px !important;
+    height: 90px !important;
+    line-height: 90px !important;
+}
+
+.media-item .pinkynail {
+    max-width: 90px !important;
+}

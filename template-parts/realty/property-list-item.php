@@ -11,12 +11,16 @@ $property  = pods( 'realty', $post->ID );
     <div class="uk-card uk-card-small uk-position-relative uk-card-default uk-card-body uk-border-rounded">
         <div class="uk-flex uk-flex-wrap uk-grid-small" uk-grid>
             <div class="uk-width-1-3@m">
-                <div class="gk-property-image uk-border-rounded"
-                     style="background-image: url(<?php echo $image_url; ?>)">
-                </div>
+                <a href="<?php echo get_permalink( $post->ID ); ?>">
+                    <div class="gk-property-image uk-border-rounded"
+                         style="background-image: url(<?php echo $image_url; ?>)">
+                    </div>
+                </a>
             </div>
             <div class="uk-width-2-3@m">
-                <h3 class="gk-thin-title uk-margin-remove"><?php echo $post->post_title; ?></h3>
+                <a href="<?php echo get_permalink( $post->ID ); ?>">
+                    <h3 class="gk-thin-title uk-margin-remove"><?php echo $post->post_title; ?></h3>
+                </a>
                 <div>
                     <small>Код объекта: <?php echo $property->display( 'code_object' ); ?></small>
                 </div>
@@ -26,35 +30,49 @@ $property  = pods( 'realty', $post->ID );
                 <div class="uk-margin-small">
                     <span class="gk-property-price"><?php echo "{$property->display('price')} руб."; ?></span>
                 </div>
-                <div class="gk-property-description">
+                <div class="gk-property-description uk-overflow-auto">
                     <div class="uk-flex uk-flex-wrap uk-grid uk-child-width-1-2@m">
                         <div>
                             <dl class="uk-flex uk-flex-wrap uk-grid-small uk-child-width-1-2">
-                                <dt>Площадь:</dt>
-                                <dd><?php echo $property->display( 'square' ); ?> м<sup>2</sup></dd>
-                                <dt>Всего комнат:</dt>
-                                <dd><?php echo $property->display( 'rooms' ); ?></dd>
-                                <dt>Этаж:</dt>
-                                <dd><?php echo $property->display( 'floor' ); ?></dd>
-                                <dt>Этажей:</dt>
-                                <dd><?php echo $property->display( 'floors' ); ?></dd>
+								<?php if ( $property->display( 'square' ) ): ?>
+                                    <dt>Площадь:</dt>
+                                    <dd><?php echo $property->display( 'square' ); ?> м<sup>2</sup></dd>
+								<?php endif; ?>
+								<?php if ( $property->display( 'square_live' ) ): ?>
+                                    <dt>Площадь жилая:</dt>
+                                    <dd><?php echo $property->display( 'square_live' ); ?> м<sup>2</sup></dd>
+								<?php endif; ?>
+								<?php if ( $property->display( 'square_kitchen' ) ): ?>
+                                    <dt>Площадь кухни:</dt>
+                                    <dd><?php echo $property->display( 'square_kitchen' ); ?> м<sup>2</sup></dd>
+								<?php endif; ?>
+								<?php if ( $property->display( 'square_plot' ) ): ?>
+                                    <dt>Площадь участка:</dt>
+                                    <dd><?php echo $property->display( 'square_plot' ); ?> сот.</dd>
+								<?php endif; ?>
                             </dl>
                         </div>
                         <div>
                             <dl class="uk-flex uk-flex-wrap uk-grid-small uk-child-width-1-2">
-                                <dt>Площадь жилая:</dt>
-                                <dd><?php echo $property->display( 'square_live' ); ?> м<sup>2</sup></dd>
-                                <dt>Площадь кухни:</dt>
-                                <dd><?php echo $property->display( 'square_kitchen' ); ?> м<sup>2</sup></dd>
-                                <dt>Площадь участка:</dt>
-                                <dd><?php echo $property->display( 'square_plot' ); ?> сот.</dd>
+								<?php if ( $property->display( 'rooms' ) ): ?>
+                                    <dt>Всего комнат:</dt>
+                                    <dd><?php echo $property->display( 'rooms' ); ?></dd>
+								<?php endif; ?>
+								<?php if ( $property->display( 'floor' ) ): ?>
+                                    <dt>Этаж:</dt>
+                                    <dd><?php echo $property->display( 'floor' ); ?></dd>
+								<?php endif; ?>
+								<?php if ( $property->display( 'floors' ) ): ?>
+                                    <dt>Этажей:</dt>
+                                    <dd><?php echo $property->display( 'floors' ); ?></dd>
+								<?php endif; ?>
                             </dl>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <a href="<?php echo get_permalink( $post->ID ); ?>" class="uk-position-bottom-right gk-property-more">Подробнее
+        <a href="<?php echo get_permalink( $post->ID ); ?>" class="uk-position-bottom-right gk-property-more"><span class="text">Подробнее</span>
             <span class="gk-primary-color"> > </span></a>
     </div>
 </div>

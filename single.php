@@ -11,6 +11,9 @@ get_header(); ?>
 			if ( get_post_type() === 'realty' ) {
 				get_template_part( '/template-parts/realty/item', 'full' );
 			}
+			else {
+
+            }
 		} ?>
     </div>
 

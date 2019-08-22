@@ -54,7 +54,7 @@ $property = pods( 'realty', $post_id );
                     <div class="uk-flex uk-flex-center uk-flex-wrap uk-grid-small" uk-grid>
                         <div>
                             <div uk-slideshow-item="0" class="uk-cover-container" style="cursor: pointer">
-                                <canvas width="80" height="80"></canvas>
+                                <canvas width="50" height="50"></canvas>
                                 <img src="<?php echo $image_thumb[0]; ?>" uk-cover>
                             </div>
                         </div>
@@ -62,31 +62,84 @@ $property = pods( 'realty', $post_id );
                             <div>
                                 <div uk-slideshow-item="<?php echo ++ $key; ?>" class="uk-cover-container"
                                      style="cursor: pointer">
-                                    <canvas width="80" height="80"></canvas>
+                                    <canvas width="50" height="50"></canvas>
                                     <img src="<?php echo pods_image_url( $photo, 'thumbnail' ); ?>" uk-cover>
                                 </div>
                             </div>
 						<?php endforeach; ?>
                     </div>
                 </div>
+
             </div>
 
             <div class="gk-property-description uk-margin-top">
                 <h3 class="gk-title gk-heading-border">Описание</h3>
 				<?php echo the_content(); ?>
             </div>
-            <div class="gk-property-info">
+            <div class="gk-property-info uk-margin">
                 <h3 class="gk-title gk-heading-border">Характеристики объекта</h3>
-				<?php $fields = $property->fields(); ?>
-                <ul class="uk-list uk-flex uk-flex-middle uk-flex-wrap uk-child-width-1-2@s">
-					<?php foreach ( $fields as $index => $value ): ?>
-						<?php if ( $value['name'] != 'special' && $value['name'] != 'photos' && $property->display( $value ) ): ?>
-                            <li><strong><?php echo $value['label']; ?>:</strong>
-                                <span><?php echo $property->display( $value ); ?></span>
-                            </li>
-						<?php endif; ?>
-					<?php endforeach; ?>
-                </ul>
+                <div class="uk-flex uk-flex-wrap uk-child-width-1-2@m uk-grid-small">
+                    <div>
+                        <dl class="uk-flex uk-flex-wrap uk-grid-small uk-child-width-1-2" uk-grid>
+							<?php if ( $property->display( 'code_object' ) ): ?>
+                                <dt>Код объекта:</dt>
+                                <dd><?php echo $property->display( 'code_object' ); ?></dd>
+							<?php endif; ?>
+							<?php if ( $property->display( 'square' ) ): ?>
+                                <dt>Площадь:</dt>
+                                <dd><?php echo $property->display( 'square' ); ?> м<sup>2</sup></dd>
+							<?php endif; ?>
+							<?php if ( $property->display( 'square_live' ) ): ?>
+                                <dt>Площадь жилая:</dt>
+                                <dd><?php echo $property->display( 'square_live' ); ?> м<sup>2</sup></dd>
+							<?php endif; ?>
+							<?php if ( $property->display( 'square_kitchen' ) ): ?>
+                                <dt>Площадь кухни:</dt>
+                                <dd><?php echo $property->display( 'square_kitchen' ); ?> м<sup>2</sup></dd>
+							<?php endif; ?>
+							<?php if ( $property->display( 'square_plot' ) ): ?>
+                                <dt>Площадь участка:</dt>
+                                <dd><?php echo $property->display( 'square_plot' ); ?> сот.</dd>
+							<?php endif; ?>
+							<?php if ( $property->display( 'rooms' ) ): ?>
+                                <dt>Всего комнат:</dt>
+                                <dd><?php echo $property->display( 'rooms' ); ?></dd>
+							<?php endif; ?>
+							<?php if ( $property->display( 'state' ) ): ?>
+                                <dt>Состояние:</dt>
+                                <dd><?php echo $property->display( 'state' ); ?></dd>
+							<?php endif; ?>
+							<?php if ( $property->display( 'house_type' ) ): ?>
+                                <dt>Тип дома:</dt>
+                                <dd><?php echo $property->display( 'house_type' ); ?></dd>
+							<?php endif; ?>
+							<?php if ( $property->display( 'year_build' ) ): ?>
+                                <dt>Год постройки:</dt>
+                                <dd><?php echo $property->display( 'year_build' ); ?></dd>
+							<?php endif; ?>
+                        </dl>
+                    </div>
+                    <div>
+                        <dl class="uk-flex uk-flex-wrap uk-grid-small uk-child-width-1-2" uk-grid>
+							<?php if ( $property->display( 'floor' ) ): ?>
+                                <dt>Этаж:</dt>
+                                <dd><?php echo $property->display( 'floor' ); ?></dd>
+							<?php endif; ?>
+							<?php if ( $property->display( 'floors' ) ): ?>
+                                <dt>Этажей:</dt>
+                                <dd><?php echo $property->display( 'floors' ); ?></dd>
+							<?php endif; ?>
+							<?php if ( $property->display( 'facade_plot' ) ): ?>
+                                <dt>Фасад участка:</dt>
+                                <dd><?php echo $property->display( 'facade_plot' ); ?> м.</dd>
+							<?php endif; ?>
+							<?php if ( $property->display( 'rent_date_year' ) ): ?>
+                                <dt>Срок сдачи:</dt>
+                                <dd><?php echo $property->display( 'rent_date_year' ) . ' ' . $property->display( 'rent_date_kvartal' ); ?></dd>
+							<?php endif; ?>
+                        </dl>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
