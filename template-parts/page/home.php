@@ -64,7 +64,7 @@ $new_objects = pods( 'realty', array(
             </div>
             <div class="uk-flex uk-flex-center">
                 <div>
-                    <a href="/realty" class="uk-button uk-button-primary uk-margin-top">Посмотреть все объекты</a>
+                    <a href="<?php echo home_url('/realty'); ?>" class="uk-button uk-button-primary uk-margin-top">Посмотреть все объекты</a>
                 </div>
             </div>
         </div>
