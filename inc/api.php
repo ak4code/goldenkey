@@ -28,6 +28,13 @@ function custom_phrase( WP_REST_Request $request ) {
 				'compare' => 'LIKE'
 			) );
 		}
+		if ( array_key_exists( 'address', $query ) ) {
+			array_push( $mq, array(
+				'key'     => 'address',
+				'value'   => $query['address'],
+				'compare' => 'LIKE'
+			) );
+		}
 		if ( array_key_exists( 'square', $query ) ) {
 			array_push( $mq, array(
 				'key'     => 'square',
@@ -52,6 +59,13 @@ function custom_phrase( WP_REST_Request $request ) {
 		}
 		$properties = $wpGet->query( array(
 			'post_type'  => 'realty',
+			'tax_query'  => $query['realty_type'] ? array(
+				array(
+					'taxonomy' => 'realty_type',
+					'field'    => 'id',
+					'terms'    => $query['realty_type']
+				)
+			) : '',
 			'meta_query' => $mq,
 			'paged'      => $page
 		) );

@@ -3,7 +3,18 @@
         <form class="gk-form uk-dark" action="/" method="get">
             <div class="uk-margin">
                 <label for="code-object">Код объекта</label>
-                <input class="uk-input" id="code-object" name="code_object" type="text" placeholder="0000">
+                <input class="uk-input" id="code-object" :value="codeObject" name="code_object" type="text"
+                       placeholder="0000">
+            </div>
+            <div class="uk-margin">
+                <label for="realty-type">Категория</label>
+                <select name="realty_type" id="realty-type" class="uk-select" v-model="currentCategory">
+                    <option v-for="cat in categories" :key="cat.id" :value="cat.id">{{cat.name}}</option>
+                </select>
+            </div>
+            <div class="uk-margin">
+                <label for="address">Адрес</label>
+                <input class="uk-input" id="address" :value="address" name="address" type="text" placeholder="Улица">
             </div>
             <div class="uk-margin">
                 <label for="price-from">Цена</label>
@@ -28,10 +39,27 @@
 <script>
     export default {
         name: 'search-realty',
-        props: ['category'],
+        props: ['category', 'codeObject', 'address'],
+        data: () => ({
+            categories: [],
+            currentCategory: null
+        }),
+        created () {
+            this.getCategories()
+            this.currentCategory = this.category
+        },
         computed: {
             home_url () {
                 return window.location.host
+            }
+        },
+        methods: {
+            async getCategories () {
+                await this.$axios.get(`wp/v2/realty_type`)
+                    .then(response => {
+                        this.categories = response.data
+                    })
+                    .catch(error => console.log(error))
             }
         }
     }

@@ -12,6 +12,8 @@ get_header(); ?>
                 <div class="uk-width-3-4@m">
                     <search-result
                             code-object="<?php echo $_GET['code_object']; ?>"
+                            realty-type="<?php echo $_GET['realty_type']; ?>"
+                            address="<?php echo $_GET['address']; ?>"
                             :square='<?php echo json_encode( $_GET['square'] ); ?>'
                             :price='<?php echo json_encode( $_GET['price'] ); ?>'
                             page="<?php echo $_GET['page']; ?>"
@@ -20,7 +22,11 @@ get_header(); ?>
                 <div class="uk-width-1-4@m">
                     <div class="uk-card uk-card-body uk-card-small uk-border-rounded uk-card-secondary uk-box-shadow-medium">
                         <h4 class="gk-widget-h4">Поиск недвижимости</h4>
-                        <search-realty></search-realty>
+                        <search-realty
+                                code-object="<?php echo $_GET['code_object']; ?>"
+                                category="<?php echo $_GET['realty_type']; ?>"
+                                address="<?php echo $_GET['address']; ?>"
+                        ></search-realty>
                     </div>
                 </div>
             </div>

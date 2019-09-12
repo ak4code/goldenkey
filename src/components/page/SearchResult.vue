@@ -6,7 +6,9 @@
                 <realty-object :property="property"></realty-object>
             </div>
             <div class="uk-flex uk-flex-center uk-margin">
-                <button class="uk-button uk-button-primary" @click.prevent="loadMore" v-if="pagination.pages > this.pagination.page">Показать еще</button>
+                <button class="uk-button uk-button-primary" @click.prevent="loadMore"
+                        v-if="pagination.pages > this.pagination.page">Показать еще
+                </button>
             </div>
         </div>
         <div v-if="!loading && !results.length">
@@ -27,14 +29,14 @@
 
     export default {
         name: 'search-result',
-        props: ['codeObject', 'square', 'price', 'page'],
+        props: ['codeObject', 'realtyType', 'address', 'square', 'price', 'page'],
         data: () => ({
             results: [],
             loading: true,
             pagination: {
                 total: 0,
                 pages: 0,
-                page: 1,
+                page: 1
             }
         }),
         components: {
@@ -59,7 +61,12 @@
                     .catch(error => console.log(error))
             },
             queryBuild () {
-                let query = qs.stringify({ code_object: this.codeObject, page: this.pagination.page })
+                let query = qs.stringify({
+                    code_object: this.codeObject,
+                    realty_type: this.realtyType,
+                    address: this.address,
+                    page: this.pagination.page
+                })
                 query += '&' + qs.stringify({ price: this.price, square: this.square }, { arrayFormat: 'bracket' })
                 return query
             },

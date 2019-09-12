@@ -5,6 +5,7 @@
  */
 
 function realtor_frontend() {
+	wp_enqueue_script( 'yamap', 'https://api-maps.yandex.ru/2.1/?lang=ru_RU', array( 'jquery' ) );
 	if ( WP_DEBUG ) {
 		wp_enqueue_style( 'realtor-style', 'http://localhost:8081/css/app.css', array(), null );
 		wp_enqueue_script( 'realtor-js', 'http://localhost:8081/app.js', array(), null, true );

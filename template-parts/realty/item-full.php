@@ -141,6 +141,12 @@ $property = pods( 'realty', $post_id );
                     </div>
                 </div>
             </div>
+            <div class="gk-property-map uk-margin">
+                <h3 class="gk-title gk-heading-border">Объект на карте</h3>
+                <div id="property-map" style="width: 100%; min-height: 350px;"
+                     data-lat="<?php echo $property->display( 'lat' ); ?>"
+                     data-lng="<?php echo $property->display( 'lng' ); ?>"></div>
+            </div>
         </div>
     </div>
     <div class="uk-width-1-4@m">
