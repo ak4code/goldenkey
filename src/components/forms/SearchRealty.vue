@@ -42,11 +42,13 @@
         props: ['category', 'codeObject', 'address'],
         data: () => ({
             categories: [],
-            currentCategory: null
+            currentCategory: null,
+            cities: []
         }),
         created () {
             this.getCategories()
             this.currentCategory = this.category
+            this.getRealty()
         },
         computed: {
             home_url () {
@@ -58,6 +60,18 @@
                 await this.$axios.get(`wp/v2/realty_type`)
                     .then(response => {
                         this.categories = response.data
+                    })
+                    .catch(error => console.log(error))
+            },
+            async getRealty () {
+                await this.$axios.get(`wp/v2/realty`)
+                    .then(response => {
+                        let realties = response.data.map(function (realty) {
+                            return realty.city
+                        })
+                        this.cities = realties.filter(function (item, index) {
+                            return realties.indexOf(item) === index
+                        })
                     })
                     .catch(error => console.log(error))
             }

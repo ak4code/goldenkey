@@ -6,6 +6,8 @@ import Icons from 'uikit/dist/js/uikit-icons'
 import './plugins/theme'
 import SearchRealty from './components/forms/SearchRealty'
 import SearchResult from './components/page/SearchResult'
+import CommentList from './components/page/CommentList'
+import CommentModal from './components/forms/CommentModal'
 
 UIkit.use(Icons)
 window.UIkit = UIkit
@@ -19,6 +21,8 @@ new Vue({
     el: '#app',
     components: {
         SearchRealty,
-        SearchResult
+        SearchResult,
+        CommentList,
+        CommentModal
     }
 })

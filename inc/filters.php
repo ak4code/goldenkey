@@ -60,3 +60,9 @@ function gk_realty_pre_save( $pieces, $is_new_item ) {
 
 	return $pieces;
 }
+
+function filter_rest_allow_anonymous_comments() {
+	return true;
+}
+
+add_filter( 'rest_allow_anonymous_comments', 'filter_rest_allow_anonymous_comments' );
