@@ -24,7 +24,6 @@ add_action( 'admin_enqueue_scripts', 'gk_load_admin_scripts' );
 function gk_load_admin_scripts() {
 	wp_enqueue_style( 'admin_css', get_template_directory_uri() . '/admin-style.css', false, '1.0.0' );
 	wp_enqueue_script( 'yamap', 'https://api-maps.yandex.ru/2.1/?lang=ru_RU', array( 'jquery' ) );
-	wp_enqueue_script( 'realty_map', get_template_directory_uri() . '/admin/realty-map.js', array( 'yamap' ), '1.0.0', false );
 }
 
 function gk_admin_search_code_object( $where ) {

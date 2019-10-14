@@ -14,6 +14,7 @@ function gk_display_realty_map_metabox( $post ) {
 	wp_nonce_field( basename( __FILE__ ), 'map_metabox_nonce' );
 
 	$html = '<div id="realty-map" style="min-height: 350px; width: 100%;"></div>';
+	$html .= '<script type="text/javascript" src="' . get_template_directory_uri() . '/admin/realty-map.js' . '"> </script>';
 
 	echo $html;
 }
