@@ -1,3 +1,26 @@
+<div class="social-contacts uk-flex uk-flex-bottom">
+    <div class="phones">
+        <ul>
+            <li>
+                <a href="tel:<?php echo get_option( 'gk_phone' ); ?>"><?php echo get_option( 'gk_phone' ); ?></a>
+            </li>
+            <li>
+                <a href="tel:<?php echo get_option( 'gk_phone_2' ); ?>"><?php echo get_option( 'gk_phone_2' ); ?></a>
+            </li>
+        </ul>
+    </div>
+    <div class="messengers uk-flex uk-grid-small uk-flex-center">
+        <div>
+            <a href="viber://add?number=<?php echo get_option( 'viber' ); ?>" class="viber" title="Написать в Viber"></a>
+        </div>
+        <div>
+            <a href="https://wa.me/<?php echo get_option( 'whatsapp' ); ?>" class="whatsapp" title="Написать в Whatsapp"></a>
+        </div>
+        <div>
+            <a href="<?php echo get_option( 'instagram' ); ?>" class="instagram"  title="Наш Instagram"></a>
+        </div>
+    </div>
+</div>
 <footer class="gk-footer uk-margin-top uk-padding uk-padding-remove-horizontal uk-dark">
     <div class="uk-container">
         <div class="uk-flex uk-grid-small uk-flex-wrap uk-child-width-1-4@l uk-child-width-1-3@m uk-child-width-1-2@s uk-child-width-1-1">

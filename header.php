@@ -74,7 +74,11 @@
             <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical okna-nav">
                 <li class="uk-nav-divider"></li>
                 <li><?php echo get_option( 'gk_address' ); ?></li>
-                <li><a href="tel:<?php echo get_option( 'gk_phone' ); ?>"><?php echo get_option( 'gk_phone' ); ?></a>
+                <li>
+                    <a href="tel:<?php echo get_option( 'gk_phone' ); ?>"><?php echo get_option( 'gk_phone' ); ?></a>
+                </li>
+                <li>
+                    <a href="tel:<?php echo get_option( 'gk_phone_2' ); ?>"><?php echo get_option( 'gk_phone_2' ); ?></a>
                 </li>
             </ul>
         </div>

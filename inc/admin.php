@@ -51,17 +51,41 @@ add_action( "admin_init", "gk_admin_options_fields" );
 function gk_admin_options_fields() {
 	add_settings_section( 'gk_general_options', 'Онсовные настройки темы', '', 'goldenkey' );
 
-	add_settings_field( 'gk_address', 'Адрес', 'gk_address_field', 'goldenkey', 'gk_general_options' );
-	add_settings_field( 'gk_phone', 'Телефон', 'gk_phone_field', 'goldenkey', 'gk_general_options' );
+	add_settings_field( 'gk_address', 'Адрес', 'gk_option_text_input', 'goldenkey', 'gk_general_options', array(
+		'id'          => 'gk_address',
+		'option_name' => 'gk_address'
+	) );
+	add_settings_field( 'gk_phone', 'Телефон #1', 'gk_option_text_input', 'goldenkey', 'gk_general_options', array(
+		'id'          => 'gk_phone',
+		'option_name' => 'gk_phone'
+	) );
+	add_settings_field( 'gk_phone_2', 'Телефон #2', 'gk_option_text_input', 'goldenkey', 'gk_general_options', array(
+		'id'          => 'gk_phone_2',
+		'option_name' => 'gk_phone_2'
+	) );
+	add_settings_field( 'whatsapp', 'WhatsApp', 'gk_option_text_input', 'goldenkey', 'gk_general_options', array(
+		'id'          => 'whatsapp',
+		'option_name' => 'whatsapp'
+	) );
+	add_settings_field( 'viber', 'Viber', 'gk_option_text_input', 'goldenkey', 'gk_general_options', array(
+		'id'          => 'viber',
+		'option_name' => 'viber'
+	) );
+	add_settings_field( 'instagram', 'Instagram', 'gk_option_text_input', 'goldenkey', 'gk_general_options', array(
+		'id'          => 'instagram',
+		'option_name' => 'instagram'
+	) );
 
 	register_setting( "goldenkey", "gk_address" );
 	register_setting( "goldenkey", "gk_phone" );
+	register_setting( "goldenkey", "gk_phone_2" );
+	register_setting( "goldenkey", "whatsapp" );
+	register_setting( "goldenkey", "viber" );
+	register_setting( "goldenkey", "instagram" );
 }
 
-function gk_phone_field() {
-	echo '<input type="text" style="width: 100%" name="gk_phone" id="gk_phone" value="' . get_option( 'gk_phone' ) . '"/>';
-}
-
-function gk_address_field() {
-	echo '<input type="text" style="width: 100%" name="gk_address" id="gk_address" value="' . get_option( 'gk_address' ) . '"/>';
+function gk_option_text_input( $args ) {
+	$id          = $args['id'];
+	$option_name = $args['option_name'];
+	echo '<input type="text" style="width: 100%" name="' . $option_name . '" id="' . $id . '" value="' . get_option( $option_name ) . '"/>';
 }
