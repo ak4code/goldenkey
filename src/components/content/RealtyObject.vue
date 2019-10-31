@@ -4,8 +4,11 @@
             <div class="uk-flex uk-flex-wrap uk-grid-small" uk-grid>
                 <div class="uk-width-1-3@m">
                     <a :href="property.url" :title="property.title">
-                        <div class="gk-property-image uk-border-rounded"
+                        <div class="gk-property-image uk-border-rounded uk-position-relative"
                              :style="`background-image: url(${property.image})`">
+                            <div class="sale" v-if="property.sale">
+                                ПРОДАНО
+                            </div>
                         </div>
                     </a>
                 </div>

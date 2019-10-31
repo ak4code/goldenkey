@@ -106,6 +106,20 @@ a.custom-logo-link {
   display: block;
   position: relative;
 
+  .sale {
+    position: absolute;
+    display: block;
+    z-index: 22;
+    color: red;
+    top: 35%;
+    font-size: 2rem;
+    padding: 5px 10px;
+    border: 2px solid;
+    left: 20%;
+    transform: rotate(-25deg);
+    box-sizing: border-box;
+  }
+
   .gk-property-price {
     position: absolute;
     top: 10px;
@@ -135,6 +149,19 @@ a.custom-logo-link {
 }
 
 .gk-property-full {
+  .sale {
+    position: absolute;
+    display: block;
+    z-index: 22;
+    color: red;
+    top: 35%;
+    font-size: 2rem;
+    padding: 5px 10px;
+    border: 2px solid;
+    left: 40%;
+    transform: rotate(-25deg);
+    box-sizing: border-box;
+  }
   .gk-property-title {
     font-size: 28px;
     font-weight: lighter;
@@ -169,6 +196,19 @@ a.custom-logo-link {
 }
 
 .gk-realty-object {
+  .sale {
+    position: absolute;
+    display: block;
+    z-index: 22;
+    color: red;
+    top: 35%;
+    font-size: 2rem;
+    padding: 5px 10px;
+    border: 2px solid;
+    left: 20%;
+    transform: rotate(-25deg);
+    box-sizing: border-box;
+  }
   .gk-property-price {
     padding: 5px 15px;
     border-radius: 5px;

@@ -12,6 +12,11 @@ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $realty->field( 'id
         <div class="uk-cover-container uk-border-rounded">
             <canvas width="" height="250"></canvas>
             <img src="<?php echo $image[0]; ?>" uk-cover>
+			<?php if ( $realty->field( 'sale' ) ): ?>
+            <div class="sale">
+                ПРОДАНО
+            </div>
+			<?php endif; ?>
             <div class="gk-property-price">
 				<?php echo $realty->display( 'price' ); ?> руб.
             </div>

@@ -93,6 +93,7 @@ function custom_phrase( WP_REST_Request $request ) {
 		$property_data['facade_plot']    = $pod->display( 'facade_plot' );
 		$property_data['floor']          = $pod->display( 'floor' );
 		$property_data['floors']         = $pod->display( 'floors' );
+		$property_data['sale']           = boolval( $pod->field( 'sale' ) );
 		$property_data['content']        = $property->post_content;
 		$property_data['image']          = get_the_post_thumbnail_url( $property, 'full' );;
 

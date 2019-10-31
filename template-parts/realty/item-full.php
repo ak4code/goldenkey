@@ -24,6 +24,11 @@ $property = pods( 'realty', $post_id );
             <div class="uk-position-relative uk-margin-top uk-dark" uk-slideshow="animation: fade">
 
                 <div class="uk-position-relative">
+	                <?php if ( $property->field( 'sale' ) ): ?>
+                        <div class="sale">
+                            ПРОДАНО
+                        </div>
+	                <?php endif; ?>
                     <ul class="uk-slideshow-items uk-position-relative" uk-lightbox="animation: slide">
 						<?php
 						$image       = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), 'full' );

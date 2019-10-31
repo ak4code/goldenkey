@@ -12,8 +12,13 @@ $property  = pods( 'realty', $post->ID );
         <div class="uk-flex uk-flex-wrap uk-grid-small" uk-grid>
             <div class="uk-width-1-3@m">
                 <a href="<?php echo get_permalink( $post->ID ); ?>">
-                    <div class="gk-property-image uk-border-rounded"
+                    <div class="gk-property-image uk-border-rounded uk-position-relative"
                          style="background-image: url(<?php echo $image_url; ?>)">
+	                    <?php if ( $property->field( 'sale' ) ): ?>
+                            <div class="sale">
+                                ПРОДАНО
+                            </div>
+	                    <?php endif; ?>
                     </div>
                 </a>
             </div>
