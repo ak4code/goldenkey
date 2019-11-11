@@ -46,7 +46,7 @@ function custom_phrase( WP_REST_Request $request ) {
 				'compare' => 'BETWEEN'
 			) );
 		}
-		if ( array_key_exists( 'price', $query ) && ! array_key_exists( 'code_object', $query ) ) {
+		if ( array_key_exists( 'price', $query ) ) {
 			array_push( $mq, array(
 				'key'     => 'price',
 				'value'   => array(
@@ -95,7 +95,7 @@ function custom_phrase( WP_REST_Request $request ) {
 		$property_data['floors']         = $pod->display( 'floors' );
 		$property_data['sale']           = boolval( $pod->field( 'sale' ) );
 		$property_data['content']        = $property->post_content;
-		$property_data['image']          = get_the_post_thumbnail_url( $property, 'full' );;
+		$property_data['image']          = get_the_post_thumbnail_url( $property, 'full' );
 
 		return $property_data;
 	}, $properties );

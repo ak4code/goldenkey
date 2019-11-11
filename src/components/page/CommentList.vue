@@ -27,7 +27,7 @@
         name: 'comment-list',
         props: ['post'],
         data: () => ({
-            comments: [],
+            comments: []
         }),
         created () {
             this.getComments()

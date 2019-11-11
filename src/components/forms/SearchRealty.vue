@@ -18,13 +18,13 @@
             </div>
             <div class="uk-margin">
                 <label for="price-from">Цена</label>
-                <input class="uk-input" id="price-from" name="price[]" type="number" min="0" placeholder="Цена от">
-                <input class="uk-input" id="price-to" name="price[]" type="number" min="1" placeholder="Цена до">
+                <input class="uk-input" id="price-from" name="price[]" type="number" min="0" placeholder="Цена от" :value="params['price[]'] ? params['price[]'][0] : ''">
+                <input class="uk-input" id="price-to" name="price[]" type="number" min="1" placeholder="Цена до" :value="params['price[]'] ? params['price[]'][1] : ''">
             </div>
             <div class="uk-margin">
                 <label for="square-from">Площадь</label>
-                <input class="uk-input" id="square-from" name="square[]" type="number" min="1" placeholder="Площадь от">
-                <input class="uk-input" id="square-to" name="square[]" type="number" min="2" placeholder="Площадь до">
+                <input class="uk-input" id="square-from" name="square[]" type="number" min="1" placeholder="Площадь от" :value="params['square[]'] ? params['square[]'][0] : 0">
+                <input class="uk-input" id="square-to" name="square[]" type="number" min="2" placeholder="Площадь до" :value="params['square[]'] ? params['square[]'][1] : ''">
             </div>
             <div class="uk-margin">
                 <button type="submit" class="uk-button uk-button-primary uk-width-1-1">Найти</button>
@@ -37,18 +37,23 @@
 </template>
 
 <script>
+    import qs from 'query-string'
     export default {
         name: 'search-realty',
         props: ['category', 'codeObject', 'address'],
         data: () => ({
             categories: [],
             currentCategory: null,
-            cities: []
+            cities: [],
+            params: null
         }),
         created () {
             this.getCategories()
             this.currentCategory = this.category
             this.getRealty()
+            let url = window.location.href
+            this.params = qs.parse(url)
+            console.log(this.params)
         },
         computed: {
             home_url () {
