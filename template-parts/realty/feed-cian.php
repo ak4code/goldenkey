@@ -29,7 +29,7 @@ $property = pods( 'realty', array(
                     <Description><?php echo html_entity_decode( $property->field( 'post_content' ) ); ?></Description>
                     <Address><?php echo $property->field( 'city' ) . ', ' . $property->field( 'address' ); ?></Address>
                     <FlatRoomsCount>
-						<?php if ( $property->field( 'rooms' ) == 0 ) {
+						<?php if ( $property->field( 'rooms' ) == 'Студия' ) {
 							echo 9;
 						} else {
 							echo $property->field( 'rooms' );
