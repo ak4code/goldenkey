@@ -23,7 +23,7 @@
             </div>
             <div class="uk-margin">
                 <label for="square-from">Площадь</label>
-                <input class="uk-input" id="square-from" name="square[]" type="number" min="1" placeholder="Площадь от" :value="params['square[]'] ? params['square[]'][0] : 0">
+                <input class="uk-input" id="square-from" name="square[]" type="number" min="1" placeholder="Площадь от" :value="params['square[]'] ? params['square[]'][0] : ''">
                 <input class="uk-input" id="square-to" name="square[]" type="number" min="2" placeholder="Площадь до" :value="params['square[]'] ? params['square[]'][1] : ''">
             </div>
             <div class="uk-margin">
